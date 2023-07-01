@@ -11,9 +11,14 @@ app.config['PLEX_TOKEN'] = os.environ.get('PLEX_TOKEN')
 app.config['PLEX_CLIENT'] = os.environ.get('PLEX_CLIENT')
 
 @app.route('/api/movies/', methods=['GET'])
-def get_movies():
+def list_movies():
     movies = Server(app.config['PLEX_URL'], app.config['PLEX_TOKEN'], app.config['PLEX_CLIENT']).list_movies()
     return jsonify([movie.to_dict() for movie in movies])
+
+@app.route('/api/movies/<guid>', methods=['GET'])
+def get_movie(guid):
+    movie = Server(app.config['PLEX_URL'], app.config['PLEX_TOKEN'], app.config['PLEX_CLIENT']).find_movie(guid)
+    return jsonify(movie.to_dict())
 
 @app.route('/api/movies/<guid>/play/', methods=['POST'])
 def play_movie(guid):
