@@ -2,7 +2,9 @@ import React from 'react';
 
 const SeatSelector = () => {
   return (
-    <div>{'SeatSelector'}</div>
+    <div className='py-16 px-64'>
+      <div>{'SeatSelector'}</div>
+    </div>
   );
 };
 

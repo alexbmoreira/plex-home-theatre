@@ -10,8 +10,12 @@ module.exports = {
       colors: {
         'gunmetal': '#253444',
         'powder': '#F3F4F6',
-        'amethyst': '#8D62AC',
-        'slate': '#666D7F',
+        'amethyst': {
+          'hover': '#8154A0',
+          'DEFAULT': '#8D62AC',
+          'active': '#6B4686'
+        },
+        'slate': '#384157',
         'crimson': '#A31621'
       },
     },

@@ -24,7 +24,7 @@ class Server():
         self.client = self.__client(clientTitle)
 
     def list_movies(self):
-        return [Movie(movie.guids[0].id, movie.title, movie.thumb, movie.media[0].duration) for movie in self.__movies().all()]
+        return [Movie(movie.guids[0].id, movie.title, movie.posterUrl, movie.media[0].duration) for movie in self.__movies().all()]
 
     def find_movie(self, guid):
         movie = self.__movies().getGuid(f'imdb://{guid}')

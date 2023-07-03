@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, jsonify
+from flask_cors import CORS
 from ..app.plex_ticketing import Server
 import os
 
@@ -9,6 +10,8 @@ app = Flask(__name__)
 app.config['PLEX_URL'] = os.environ.get('PLEX_URL')
 app.config['PLEX_TOKEN'] = os.environ.get('PLEX_TOKEN')
 app.config['PLEX_CLIENT'] = os.environ.get('PLEX_CLIENT')
+app.config['ORIGIN'] = os.environ.get('ORIGIN')
+CORS(app, origins=app.config['ORIGIN'])
 
 @app.route('/api/movies/', methods=['GET'])
 def list_movies():
