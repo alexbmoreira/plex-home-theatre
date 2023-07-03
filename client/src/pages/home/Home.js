@@ -23,7 +23,7 @@ const Home = observer(({uiState}) => {
   console.log(movies);
   return (
     <div className='py-16 px-64'>
-      <div>{'Select a Movie'}</div>
+      <div className='font-serif text-3xl mb-4 text-center'>{'Select a Movie'}</div>
       <div className='grid gap-6 grid-cols-4'>
         {movies.map((movie) => <Poster movie={movie}/>)}
       </div>
