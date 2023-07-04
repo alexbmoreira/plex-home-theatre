@@ -28,12 +28,12 @@ class Server():
 
     def find_movie(self, guid):
         movie = self.__movies().getGuid(f'imdb://{guid}')
-        return Movie(movie.guids[0].id, movie.title, movie.thumb, movie.media[0].duration)
+        return Movie(movie.guids[0].id, movie.title, movie.posterUrl, movie.media[0].duration)
 
     def play_movie(self, guid):
         movie = self.__movies().getGuid(f'imdb://{guid}')
         self.client.playMedia(movie)
-        return Movie(movie.guids[0].id, movie.title, movie.thumb, movie.media[0].duration)
+        return Movie(movie.guids[0].id, movie.title, movie.posterUrl, movie.media[0].duration)
 
     def __movies(self):
         return self.server.library.section('Movies')

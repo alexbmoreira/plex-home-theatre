@@ -20,7 +20,6 @@ const Poster = observer(({movie}) => {
 const Home = observer(({uiState}) => {
   const {movies} = uiState;
 
-  console.log(movies);
   return (
     <div className='py-16 px-64'>
       <div className='font-serif text-3xl mb-4 text-center'>{'Select a Movie'}</div>

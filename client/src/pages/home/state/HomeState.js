@@ -16,7 +16,7 @@ class HomeState {
 
   async load() {
     this.fetchingMovies = true;
-    const movies = await fetchData('/api/movies/')
+    const movies = await fetchData('/api/movies')
     this.movies = movies;
     this.fetchingMovies = false;
   }
