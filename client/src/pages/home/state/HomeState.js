@@ -4,11 +4,13 @@ import _ from 'lodash';
 
 class HomeState {
   movies = [];
+  search = '';
   fetchingMovies = true;
 
   constructor() {
     makeObservable(this, {
       movies: observable,
+      search: observable,
       fetchingMovies: observable,
       load: action
     });
@@ -16,9 +18,14 @@ class HomeState {
 
   async load() {
     this.fetchingMovies = true;
-    const movies = await fetchData('/api/movies')
+    const movies = await fetchData(`/api/movies?search=${this.search}`);
     this.movies = movies;
     this.fetchingMovies = false;
+  }
+
+  async updateSearch(value) {
+    this.search = value;
+    await this.load();
   }
 }
 

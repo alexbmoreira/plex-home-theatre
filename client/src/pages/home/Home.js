@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { withState } from '../../utils';
 import { HomeState } from './state';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 const Poster = observer(({movie}) => {
   return (
@@ -23,6 +24,12 @@ const Home = observer(({uiState}) => {
   return (
     <div className='py-16 px-64'>
       <div className='font-serif text-3xl mb-4 text-center'>{'Select a Movie'}</div>
+      <input
+        type='search'
+        className='w-full'
+        placeholder={'Search...'}
+        onChange={_.debounce(e => uiState.updateSearch(e.target.value), 300)}
+      />
       <div className='grid gap-6 grid-cols-4'>
         {movies.map((movie) => <Poster movie={movie}/>)}
       </div>
