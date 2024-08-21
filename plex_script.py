@@ -43,6 +43,7 @@ def launch_plex_on_chromecast():
 def turn_on_projector():
     try:
         subprocess.run(["cec-client", "-s", "-d", "1"], input="on 0\n", text=True, check=True)
+        subprocess.run(["cec-client", "-s", "-d", "1"], input="tx 4F:82:30:00\n", text=True, check=True)
         sleep(20)
         print("Turned on projector")
     except subprocess.CalledProcessError as e:
