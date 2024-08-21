@@ -1,17 +1,28 @@
 from plexapi.server import PlexServer
+from dotenv import load_dotenv
+import os
+import subprocess
 
-baseurl = 'http://10.88.111.5:32400'
-token = 'x8q9mQPoZ6diHkt9vHBh'
+load_dotenv()
 
-plex = PlexServer(baseurl, token)
-client = next(client for client in plex.clients() if client.title == 'TV 2021')
-movies = plex.library.section('Movies')
+baseurl = os.environ.get('PLEX_URL')
+token = os.environ.get('PLEX_TOKEN')
+client = os.environ.get('PLEX_CLIENT')
+
+def turn_on_projector():
+    try:
+        subprocess.run(["echo", "on", "0", "|", "cec-client", "-s", "-d", "1"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to turn on projector: {e}")
+
+turn_on_projector()
+
+# plex = PlexServer(baseurl, token)
+# client = next(client for client in plex.clients() if client.title == client)
+# movies = plex.library.section('Movies')
 
 
-for movie in movies.all():
-    print(movie.guids[0].id)
-# .get('The Pink Panther')
-
-# print(movie)
+# for movie in movies.all():
+#     print(movie.guids[0].id)
 
 # response = client.playMedia(movie)
