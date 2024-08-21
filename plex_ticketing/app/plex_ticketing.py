@@ -32,7 +32,7 @@ class Server():
     def __connect(self, baseUrl, token):
         return PlexServer(baseUrl, token)
 
-    def __movies(self, search):
+    def __movies(self, search=None):
         return self.server.library.section('Movies').search(title=search)
 
 
