@@ -29,7 +29,9 @@ def turn_on_projector():
 
 @app.route('/api/movies', methods=['GET'])
 def list_movies():
-    movies = Server(app.config['PLEX_URL'], app.config['PLEX_TOKEN']).list_movies()
+    search = request.args.get('search')
+
+    movies = Server(app.config['PLEX_URL'], app.config['PLEX_TOKEN']).list_movies(search)
     return jsonify([movie.to_dict() for movie in movies])
 
 @app.route('/api/movies/<guid>', methods=['GET'])
