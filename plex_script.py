@@ -11,7 +11,7 @@ client = os.environ.get('PLEX_CLIENT')
 
 def turn_on_projector():
     try:
-        subprocess.run(["echo", "on", "0", "|", "cec-client", "-s", "-d", "1"], check=True)
+        subprocess.run(["echo", '"on 0"', "|", "cec-client", "-s", "-d", "1"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Failed to turn on projector: {e}")
 
