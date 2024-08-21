@@ -65,9 +65,9 @@ const SeatSelector = observer(({uiState}) => {
       <div className='font-serif text-3xl my-4 text-center'>{'Select Seats'}</div>
       <SeatPicker uiState={uiState}/>
       <div className='flex justify-end mr-32 mt-16'>
-        <div onClick={() => uiState.selectSeats()} className='select-none cursor-pointer inline-flex p-2 bg-amethyst hover:bg-amethyst-hover active:bg-amethyst-active text-xl'>
-          <span className='flex items-center'>{'Print Tickets'}<i className='material-icons text-3xl'>{'chevron_right'}</i></span>
-        </div>
+        <button onClick={() => uiState.selectSeats()} className='select-none cursor-pointer rounded inline-flex px-4 py-2 bg-amethyst hover:bg-amethyst-hover active:bg-amethyst-active text-xl'>
+          <div className='flex justify-between items-center'><span>{'Print Tickets'}</span><i className='material-icons text-3xl'>{'chevron_right'}</i></div>
+        </button>
       </div>
     </div>
   );
