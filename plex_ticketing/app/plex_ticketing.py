@@ -23,7 +23,7 @@ class Server():
         self.server = self.__connect(baseUrl, token)
 
     def list_movies(self, search):
-        return [Movie(movie.guids[0].id, movie.title, movie.posterUrl, movie.media[0].duration) for movie in self.__movies(search)]
+        return [Movie(movie.guids[0].id, movie.title, movie.posterUrl, movie.media[0].duration) for movie in self.__movies().search(title=search)]
 
     def find_movie(self, guid):
         movie = self.__movies().getGuid(f'imdb://{guid}')
@@ -32,8 +32,8 @@ class Server():
     def __connect(self, baseUrl, token):
         return PlexServer(baseUrl, token)
 
-    def __movies(self, search=None):
-        return self.server.library.section('Movies').search(title=search)
+    def __movies(self):
+        return self.server.library.section('Movies')
 
 
 class Cast():
