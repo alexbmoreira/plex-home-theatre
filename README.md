@@ -14,5 +14,5 @@ Within the virtual environment, run the server:
 ```shell
 export FLASK_APP=run.py
 export FLASK_ENV=development
-flask run
+flask run --host=0.0.0.0 --port=5000
 ```
