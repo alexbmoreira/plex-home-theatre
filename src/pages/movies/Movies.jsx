@@ -4,7 +4,7 @@ import { InteractiveProvider } from '@providers';
 import { InteractiveContext } from '@contexts';
 import { Filter } from '@components';
 
-const Poster = ({movie}) => {
+const Poster = ({ movie }) => {
   return (
     <div key={movie.guid} className='cursor-pointer w-full rounded bg-slate duration-300 ease-in-out hover:bg-amethyst active:bg-amethyst-active'>
       <Link to={`/select-seats/${movie.guid}`}>
@@ -18,11 +18,11 @@ const Poster = ({movie}) => {
 };
 
 const MovieList = () => {
-  const {models} = useContext(InteractiveContext);
+  const { models } = useContext(InteractiveContext);
 
   return (
     <div className='grid gap-6 grid-cols-4'>
-      {models.map((movie) => <Poster key={movie.guid} movie={movie}/>)}
+      {models.map(movie => <Poster key={movie.guid} movie={movie}/>)}
     </div>
   );
 };

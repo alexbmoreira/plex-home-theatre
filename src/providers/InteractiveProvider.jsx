@@ -25,7 +25,7 @@ const InteractiveProvider = ({ endpoint, children }) => {
     const models = await fetchData(url);
     setModels(models);
     setIsLoading(false);
-  }, [endpoint]);
+  }, [endpoint, filter]);
 
   const filterUpdated = useCallback(async (newFilter) => {
     const updatedFilter = { ...filter, ...newFilter };
@@ -38,7 +38,7 @@ const InteractiveProvider = ({ endpoint, children }) => {
   }, [endpoint, fetchModels]);
 
   return (
-    <InteractiveContext.Provider value={{models, filter, isLoading, filterUpdated}}>
+    <InteractiveContext.Provider value={{ models, filter, isLoading, filterUpdated }}>
       {isLoading ? <Loading/> : children}
     </InteractiveContext.Provider>
   );

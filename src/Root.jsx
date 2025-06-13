@@ -9,7 +9,7 @@ function Root() {
       </div>
       {/* <Footer/> */}
     </div>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;
