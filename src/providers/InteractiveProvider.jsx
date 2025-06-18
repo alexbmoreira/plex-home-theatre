@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import Url from 'domurl';
 import { fetchData } from '@api/api.service';
 import { InteractiveContext } from '@contexts';
-import { Loading } from '@components';
 
 const constructUrl = (endpoint, filter) => {
   const url = new Url(endpoint, true);
@@ -39,7 +38,7 @@ const InteractiveProvider = ({ endpoint, children }) => {
 
   return (
     <InteractiveContext.Provider value={{ models, filter, isLoading, filterUpdated }}>
-      {isLoading ? <Loading/> : children}
+      {children}
     </InteractiveContext.Provider>
   );
 };

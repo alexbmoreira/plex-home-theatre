@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { Link } from 'react-router';
 import { InteractiveProvider } from '@providers';
 import { InteractiveContext } from '@contexts';
-import { Filter } from '@components';
+import { Filter, Loading } from '@components';
 
 const Poster = ({ movie }) => {
   return (
     <div key={movie.guid} className='cursor-pointer w-full rounded bg-slate duration-300 ease-in-out hover:bg-amethyst active:bg-amethyst-active'>
-      <Link to={`/select-seats/${movie.guid}`}>
+      <Link to={`/seats/${movie.guid}`}>
         <img src={movie.image} alt={movie.title} className='w-full rounded-t'/>
         <div className='p-4 truncate rounded-b'>
           {movie.title}
@@ -18,7 +18,9 @@ const Poster = ({ movie }) => {
 };
 
 const MovieList = () => {
-  const { models } = useContext(InteractiveContext);
+  const { models, isLoading } = useContext(InteractiveContext);
+
+  if (isLoading) return <Loading/>;
 
   return (
     <div className='grid gap-6 grid-cols-4'>
