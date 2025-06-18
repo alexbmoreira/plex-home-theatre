@@ -4,7 +4,6 @@ services:
     build: .
     container_name: plex-home-theatre
     environment:
-      - IP_ADDRESS=${IP_ADDRESS}
       - PLEX_TOKEN=${PLEX_TOKEN}
       - PLEX_URL=${PLEX_URL}
       - CLIENT_NAME=${CLIENT_NAME}
