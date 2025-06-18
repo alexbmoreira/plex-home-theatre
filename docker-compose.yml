@@ -1,0 +1,27 @@
+---
+services:
+  plex-home-theatre:
+    build: .
+    container_name: plex-home-theatre
+    environment:
+      - PLEX_TOKEN=${PLEX_TOKEN}
+      - PLEX_URL=${PLEX_URL}
+      - CLIENT_NAME=${CLIENT_NAME}
+    ports:
+      - 5067:5067
+    volumes:
+      - ./server:/app/server
+      - ./app.py:/app/app.py
+    restart: unless-stopped
+
+  plex-home-theatre-frontend:
+    image: node:24-slim
+    container_name: plex-home-theatre-frontend
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 5173:5173
+    command: npm run dev
+    profiles:
+      - dev

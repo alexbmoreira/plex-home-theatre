@@ -1,0 +1,47 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Git
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Node modules (will be installed during build)
+node_modules
+npm-debug.log*
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+
+# Development files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage reports
+coverage/
+.coverage
+
+# Build artifacts (frontend gets built in container)
+dist/
+build/

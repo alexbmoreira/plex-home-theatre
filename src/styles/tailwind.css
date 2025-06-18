@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  /* COLORS */
+  --color-gunmetal: #253444;
+  --color-powder: #F3F4F6;
+  --color-amethyst-hover: #8D62AC;
+  --color-amethyst: #8154A0;
+  --color-amethyst-active: #6B4686;
+  --color-slate: #384157;
+  --color-crimson: #A31621;
+
+  /* FONTS */
+  --font-serif: 'Arvo', 'serif';
+  --font-sans: 'Rubik', 'sans-serif';
+}
