@@ -22,7 +22,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: your-dockerhub-username/your-image-name
+        images: alexbmoreira/plex-home-theatre
         tags: |
           type=ref,event=branch
           type=sha,prefix={{branch}}-
